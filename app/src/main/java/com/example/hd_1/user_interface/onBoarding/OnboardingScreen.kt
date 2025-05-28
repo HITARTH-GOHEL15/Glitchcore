@@ -55,8 +55,8 @@ fun OnboardingScreen(
 ) {
     val animations = listOf(
         R.raw.animation_1,
-        R.raw.animation_1,
-        R.raw.animation_1
+        R.raw.animation_2,
+        R.raw.animation_3
     )
 
     val titles = listOf(
