@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -31,6 +32,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.input.pointer.motionEventSpy
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -51,7 +53,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun OnboardingScreen(
-   // context: MainActivity
+    context: MainActivity
 ) {
     val animations = listOf(
         R.raw.animation_1,
@@ -106,14 +108,14 @@ fun OnboardingScreen(
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.secondary
                 )
-
+                Spacer(modifier = Modifier.padding(7.dp))
                 Text(
                     text = descriptions[currentPage],
-                    fontSize = 20.sp,
+                    fontSize = 16.sp,
                     textAlign = TextAlign.Center,
                     fontFamily = sora_medium,
                     fontWeight = FontWeight.Medium,
-                    color = MaterialTheme.colorScheme.onPrimary
+                    color = MaterialTheme.colorScheme.tertiary
                 )
             }
         }
@@ -124,14 +126,16 @@ fun OnboardingScreen(
 
     }
     ButtonSection(
-        pagerState = pagerState
+        pagerState = pagerState,
+        context = context
     )
 }
 @SuppressLint("UnrememberedMutableState")
 
 @Composable
 fun ButtonSection(
-    pagerState: PagerState
+    pagerState: PagerState,
+    context: MainActivity
 ){
     val scope = rememberCoroutineScope()
 
@@ -167,13 +171,13 @@ fun ButtonSection(
                 },
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.secondary
+                color = MaterialTheme.colorScheme.tertiary
             )
         }else
         {
             OutlinedButton(
                 onClick = {
-
+                     context
                 },
                 modifier = Modifier.fillMaxWidth().align(Alignment.BottomCenter),
                 colors = ButtonDefaults.buttonColors(
@@ -226,10 +230,10 @@ fun IndicatorSingleDot(
     )
 }
 
-//private  fun onBoardingIsFinished(context: MainActivity){
-//    val sharedPreferences = context.getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
-//    val editor = sharedPreferences.edit()
-//    editor.putBoolean("isFinished",true)
-//    editor.apply()
-//}
+private  fun onBoardingIsFinished(context: MainActivity){
+    val sharedPreferences = context.getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+    val editor = sharedPreferences.edit()
+    editor.putBoolean("isFinished",true)
+    editor.apply()
+}
 
