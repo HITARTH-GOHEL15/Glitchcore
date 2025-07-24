@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "930508306449",
+    "project_id": "glitchcore-8cc2d",
+    "storage_bucket": "glitchcore-8cc2d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930508306449:android:57ff81d847d53ed4bb99b0",
+        "android_client_info": {
+          "package_name": "com.example.hd_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVd_GJCIHo6fRmj0JmM1ajX0lwLEtNChc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

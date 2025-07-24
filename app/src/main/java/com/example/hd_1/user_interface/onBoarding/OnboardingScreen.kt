@@ -38,12 +38,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.hd_1.MainActivity
 import com.example.hd_1.R
+import com.example.hd_1.navigation.Screens
 import com.example.hd_1.ui.theme.sora_bold
 import com.example.hd_1.ui.theme.sora_extraBold
 import com.example.hd_1.ui.theme.sora_medium
@@ -53,6 +55,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun OnboardingScreen(
+    navController: NavController,
     context: MainActivity
 ) {
     val animations = listOf(
@@ -127,7 +130,10 @@ fun OnboardingScreen(
     }
     ButtonSection(
         pagerState = pagerState,
-        context = context
+        onClick = {
+            onBoardingIsFinished(context)
+            navController.navigate(Screens.LogInScreenRoute)
+        }
     )
 }
 @SuppressLint("UnrememberedMutableState")
@@ -135,7 +141,7 @@ fun OnboardingScreen(
 @Composable
 fun ButtonSection(
     pagerState: PagerState,
-    context: MainActivity
+    onClick: () -> Unit
 ){
     val scope = rememberCoroutineScope()
 
@@ -176,9 +182,7 @@ fun ButtonSection(
         }else
         {
             OutlinedButton(
-                onClick = {
-                     context
-                },
+                onClick = onClick,
                 modifier = Modifier.fillMaxWidth().align(Alignment.BottomCenter),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = MaterialTheme.colorScheme.secondary
