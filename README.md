@@ -46,8 +46,8 @@ Google Youtube API V3 key
 
 ## Clone the Repository
 
-git clone 
-cd HitoRecipo
+git clone https://github.com/HITARTH-GOHEL15/Glitchcore.git
+cd Glitchcore
 
 ---
 
@@ -65,14 +65,14 @@ Submit a Pull Request
 
 ---
 
-## 💬 Contact
+##  Contact
 Made by Hitarth Gohel
 
 For questions or suggestions, feel free to open an issue or reach out via GitHub.
 
 ---
 
-## 📄 License
+##  License
 This project is licensed under the MIT License – see the LICENSE file for details.
 
 ---
